@@ -27,3 +27,9 @@ For example:
     $stmt = $db->prepare('SELECT * FROM <my_table> WHERE id = :id');
     $stmt->execute(['id' => $id]);
 the table prefix specified in `$xOptions['table_prefix']` will be automatically added to the table name "my_table".
+
+## Contributions
+Contributions to this package are welcome. If you would like to contribute, you can open a Pull Request on GitHub.
+
+## License
+This package is distributed under the MIT license. For more information, please see the LICENSE file included in this package.
