@@ -1,33 +1,28 @@
 # xPDO
-xPDO è una estensione di PHP. Al momento include esclusivamente un sistema per semplificare la gestione dei prefissi dei nomi delle tabelle.
+xPDO is a PHP extension that currently only includes a system to simplify the management of table name prefixes.
 
-### Installazione
-Puoi installare xPDO tramite Composer:
+## Installation
+You can install xPDO via Composer:
 
 `composer require imateapot/xpdo`
 
-### Utilizzo
-Per utilizzare xPDO, devi prima includere la classe:
-
-    use imateapot\xPDO;
-
-Quindi, puoi creare una nuova istanza di xPDO come segue:
+## Usage
+To use xPDO, you first need to include the class.
+Then, you can create a new xPDO instance like this:
 
     use imateapot\xPDO;
     $db = new xPDO($dsn, $user, $password, $options, $xOptions);
+where $dsn, $user, $password, $options are the standard parameters for creating a PDO instance, and the optional parameter $xOptions contains additional options for xPDO.
 
-dove $dsn, $user, $password, $options sono rispettivamente i parametri standard per la creazione di un'istanza di PDO, il parametro opzionale $xOptions contiene le opzioni aggiuntive per xPDO.
+You can use xPDO exactly as you would use PDO, but with the ability to specify the use of table name prefixes using the syntax <table_name>.
 
-Puoi utilizzare xPDO esattamente come utilizzeresti PDO, ma con la possibilità di specificare l'utilizzo del prefisso nei nomi delle tabella utilizzando la sintassi `<nome_tabella>`.
-
-Ad esempio:
+For example:
 
     ...
-	$xOptions = [
-		'table_prefix' => 'prefix_'
-	];
-	$db = new xPDO($dsn, $user, $password, $options, $xOptions);
-	$stmt = $db->prepare('SELECT * FROM <my_table> WHERE id = :id');
+    $xOptions = [
+    	'table_prefix' => 'prefix_'
+    ];
+    $db = new xPDO($dsn, $user, $password, $options, $xOptions);
+    $stmt = $db->prepare('SELECT * FROM <my_table> WHERE id = :id');
     $stmt->execute(['id' => $id]);
-
-In questo esempio, il prefisso della tabella specificato in $xOptions['table_prefix'] sarà aggiunto automaticamente al nome della tabella "my_table".
+the table prefix specified in` $xOptions['table_prefix']` will be automatically added to the table name "my_table".
