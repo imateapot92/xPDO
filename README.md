@@ -14,7 +14,7 @@ Then, you can create a new xPDO instance like this:
     $db = new xPDO($dsn, $user, $password, $options, $xOptions);
 where $dsn, $user, $password, $options are the standard parameters for creating a PDO instance, and the optional parameter $xOptions contains additional options for xPDO.
 
-You can use xPDO exactly as you would use PDO, but with the ability to specify the use of table name prefixes using the syntax <table_name>.
+You can use xPDO exactly as you would use PDO, but with the ability to specify the use of table name prefixes using the syntax `<table_name>`.
 
 For example:
 
