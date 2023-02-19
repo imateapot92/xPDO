@@ -25,4 +25,4 @@ For example:
     $db = new xPDO($dsn, $user, $password, $options, $xOptions);
     $stmt = $db->prepare('SELECT * FROM <my_table> WHERE id = :id');
     $stmt->execute(['id' => $id]);
-the table prefix specified in` $xOptions['table_prefix']` will be automatically added to the table name "my_table".
+the table prefix specified in `$xOptions['table_prefix']` will be automatically added to the table name "my_table".
