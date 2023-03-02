@@ -19,10 +19,15 @@ class xPDO extends PDO {
   }
 
   public function beginTransaction():bool {
-    if($this->_xTransactionDepth == 0 || !$this->_xHasSavepoint()) return parent::beginTransaction();
-    else $this->exec("SAVEPOINT LEVEL{$this->_xTransactionDepth}");
-    $this->_xTransactionDepth++;
-    return true;
+    if($this->_xTransactionDepth == 0 || !$this->_xHasSavepoint()) {
+      $this->_xTransactionDepth++;
+      return parent::beginTransaction();
+    }
+    else {
+      $this->exec("SAVEPOINT LEVEL{$this->_xTransactionDepth}");
+      $this->_xTransactionDepth++;
+      return true;
+    }
   }
 
   public function commit():bool {
