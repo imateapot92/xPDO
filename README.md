@@ -1,5 +1,5 @@
 # xPDO
-xPDO is a PHP extension that currently only includes a system to simplify the management of table name prefixes ad supports nested transactions ( only with mysql/pgsql drivers).
+xPDO is a PHP extension that currently only includes a system to simplify the management of table name prefixes ad supports nested transactions ( only with mysql/pgsql drivers ).
 
 ## Installation
 You can install xPDO via Composer:
